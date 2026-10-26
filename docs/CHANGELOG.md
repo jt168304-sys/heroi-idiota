@@ -5,3 +5,6 @@
 - feat: save em 10 slots, ciclo dia/noite
 - ci: workflow Android
 Commits seguintes: um por funcionalidade.
+- feat: texturas e ícones recortados dos painéis; inventário com ícones; retrato no HUD
+- feat: ataque leve/pesado, esquiva e animações procedurais do placeholder
+- fix: verso da placa legível

@@ -12,6 +12,7 @@ var speed: float = 3.0
 var _cd: float = 0.0
 var _player
 var _vis: Node3D
+var _kb: Vector3 = Vector3.ZERO
 
 func _ready() -> void:
 	add_to_group("enemies")
@@ -69,10 +70,14 @@ func _physics_process(delta: float) -> void:
 			_cd = 1.2
 	else:
 		_cd = 0.4
+	velocity.x += _kb.x
+	velocity.z += _kb.z
+	_kb = _kb.move_toward(Vector3.ZERO, 25.0 * delta)
 	move_and_slide()
 
-func take_damage(amount: float) -> void:
+func take_damage(amount: float, kb: Vector3 = Vector3.ZERO) -> void:
 	hp -= amount
+	_kb = kb
 	var tw := create_tween()
 	tw.tween_property(_vis, "scale", Vector3(1.2, 0.8, 1.2), 0.05)
 	tw.tween_property(_vis, "scale", Vector3.ONE, 0.1)

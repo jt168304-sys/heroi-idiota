@@ -22,6 +22,28 @@ static func add(parent: Node, mesh: Mesh, color: Color, pos: Vector3 = Vector3.Z
 	parent.add_child(mi)
 	return mi
 
+static func tex_mat(path: String, uv_scale: Vector3 = Vector3(1, 1, 1)) -> StandardMaterial3D:
+	var key: String = "tex:" + path + str(uv_scale)
+	if _cache.has(key):
+		return _cache[key]
+	var m := StandardMaterial3D.new()
+	var t: Texture2D = load(path)
+	if t != null:
+		m.albedo_texture = t
+	m.uv1_scale = uv_scale
+	m.roughness = 1.0
+	_cache[key] = m
+	return m
+
+static func add_mat(parent: Node, mesh: Mesh, material: Material, pos: Vector3 = Vector3.ZERO, scl: Vector3 = Vector3.ONE) -> MeshInstance3D:
+	var mi := MeshInstance3D.new()
+	mi.mesh = mesh
+	mi.material_override = material
+	mi.position = pos
+	mi.scale = scl
+	parent.add_child(mi)
+	return mi
+
 static func box(size: Vector3) -> BoxMesh:
 	var b := BoxMesh.new()
 	b.size = size

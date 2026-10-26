@@ -36,7 +36,11 @@ func _solid(pos: Vector3, size: Vector3, color: Color) -> StaticBody3D:
 	bs.size = size
 	cs.shape = bs
 	sb.add_child(cs)
-	MeshUtil.add(sb, MeshUtil.box(size), color)
+	# Cores marrons = madeira: usa a textura recortada do painel (provisória)
+	if color.r > color.g and color.g > color.b and color.r < 0.7:
+		MeshUtil.add_mat(sb, MeshUtil.box(size), MeshUtil.tex_mat("res://assets/textures/madeira.png", Vector3(1, 1, 1)))
+	else:
+		MeshUtil.add(sb, MeshUtil.box(size), color)
 	add_child(sb)
 	return sb
 
@@ -51,13 +55,13 @@ func _build_ground() -> void:
 	g.add_child(cs)
 	var pm := PlaneMesh.new()
 	pm.size = Vector2(80, 80)
-	MeshUtil.add(g, pm, Color(0.25, 0.5, 0.2))  # TEMPORÁRIO: cor no lugar da textura de grama
+	MeshUtil.add_mat(g, pm, MeshUtil.tex_mat("res://assets/textures/terrain/grama.png", Vector3(20, 20, 1)))  # textura recortada do painel (provisória)
 	var path_a := PlaneMesh.new()
 	path_a.size = Vector2(3, 40)
-	MeshUtil.add(g, path_a, Color(0.45, 0.32, 0.2), Vector3(0, 0.02, -5))
+	MeshUtil.add_mat(g, path_a, MeshUtil.tex_mat("res://assets/textures/terrain/terra.png", Vector3(1, 13, 1)), Vector3(0, 0.02, -5))
 	var path_b := PlaneMesh.new()
 	path_b.size = Vector2(22, 3)
-	MeshUtil.add(g, path_b, Color(0.45, 0.32, 0.2), Vector3(10, 0.02, -12))
+	MeshUtil.add_mat(g, path_b, MeshUtil.tex_mat("res://assets/textures/terrain/terra.png", Vector3(7, 1, 1)), Vector3(10, 0.02, -12))
 	add_child(g)
 	# Paredes invisíveis nas bordas
 	for p in [Vector3(0, 2, -40), Vector3(0, 2, 40)]:
@@ -108,7 +112,7 @@ func _build_trees() -> void:
 		cs.shape = shape
 		cs.position.y = 1.5
 		t.add_child(cs)
-		MeshUtil.add(t, trunk, Color(0.35, 0.22, 0.12), Vector3(0, 1.0, 0))
+		MeshUtil.add_mat(t, trunk, MeshUtil.tex_mat("res://assets/textures/madeira.png", Vector3(1, 2, 1)), Vector3(0, 1.0, 0))
 		if count % 3 == 0:
 			MeshUtil.add(t, cone, Color(0.1, 0.35, 0.2), Vector3(0, 3.7, 0))   # conífera
 		else:
@@ -136,7 +140,7 @@ func _build_rocks() -> void:
 		var cs := CollisionShape3D.new()
 		cs.shape = shape
 		r.add_child(cs)
-		MeshUtil.add(r, rock, Color(0.45, 0.45, 0.47))
+		MeshUtil.add_mat(r, rock, MeshUtil.tex_mat("res://assets/textures/terrain/pedra.png", Vector3(2, 2, 1)))
 		add_child(r)
 
 func _build_props() -> void:
@@ -151,6 +155,12 @@ func _build_props() -> void:
 	sign_lbl.position = Vector3(2.0, 1.5, 11)
 	sign_lbl.pixel_size = 0.008
 	add_child(sign_lbl)
+	var sign_back := Label3D.new()   # verso da placa (legível por trás)
+	sign_back.text = sign_lbl.text
+	sign_back.position = Vector3(2.0, 1.5, 10.9)
+	sign_back.rotation.y = PI
+	sign_back.pixel_size = 0.008
+	add_child(sign_back)
 	# Cerca
 	for i in 5:
 		_solid(Vector3(-9 + i * 1.2, 0.5, 12), Vector3(1.0, 1.0, 0.1), Color(0.5, 0.35, 0.2))

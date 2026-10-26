@@ -7,7 +7,8 @@ var info: Label
 var quest_label: Label
 var msg: Label
 var menu: PanelContainer
-var inv_label: Label
+var inv_box: VBoxContainer
+var attr_label: Label
 var menu_status: Label
 var slot_opt: OptionButton
 var roulette: PanelContainer
@@ -38,11 +39,21 @@ func setup(p) -> void:
 	add_child(touch)
 	player.touch = touch
 
+	var portrait := TextureRect.new()
+	var ptex: Texture2D = load("res://assets/ui/portraits/heroi.png")
+	if ptex != null:
+		portrait.texture = ptex
+	portrait.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	portrait.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
+	portrait.custom_minimum_size = Vector2(80, 80)
+	portrait.size = Vector2(80, 80)
+	portrait.position = Vector2(16, 12)
+	add_child(portrait)
 	info = _lbl(22)
-	info.position = Vector2(20, 14)
+	info.position = Vector2(106, 14)
 	add_child(info)
 	quest_label = _lbl(20)
-	quest_label.position = Vector2(20, 84)
+	quest_label.position = Vector2(20, 104)
 	add_child(quest_label)
 	msg = _lbl(26)
 	msg.set_anchors_preset(Control.PRESET_TOP_WIDE)
@@ -63,10 +74,12 @@ func setup(p) -> void:
 	box.size_flags_horizontal = Control.SIZE_SHRINK_END
 	box.size_flags_vertical = Control.SIZE_SHRINK_END
 	mc.add_child(box)
-	var sz := Vector2(130, 130)
+	var sz := Vector2(112, 112)
 	for b in [
 		_btn("Interagir", sz, func(): player.interact()),
 		_btn("Pular", sz, func(): player.jump_request = true),
+		_btn("Esquiva", sz, func(): player.dodge()),
+		_btn("Pesado", sz, func(): player.attack_heavy()),
 		_btn("Atacar", sz, func(): player.attack()),
 	]:
 		box.add_child(b)
@@ -121,9 +134,15 @@ func _build_menu() -> void:
 	title.text = "Menu"
 	title.add_theme_font_size_override("font_size", 28)
 	v.add_child(title)
-	inv_label = Label.new()
-	inv_label.add_theme_font_size_override("font_size", 20)
-	v.add_child(inv_label)
+	var scroll := ScrollContainer.new()
+	scroll.custom_minimum_size = Vector2(600, 170)
+	v.add_child(scroll)
+	inv_box = VBoxContainer.new()
+	inv_box.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	scroll.add_child(inv_box)
+	attr_label = Label.new()
+	attr_label.add_theme_font_size_override("font_size", 18)
+	v.add_child(attr_label)
 	var attrs := HBoxContainer.new()
 	v.add_child(attrs)
 	for a in ["forca", "velocidade", "vitalidade"]:
@@ -143,13 +162,28 @@ func _build_menu() -> void:
 	v.add_child(menu_status)
 
 func _refresh_menu() -> void:
-	var t := "Inventário:\n"
+	for c in inv_box.get_children():
+		c.queue_free()
 	if GameState.inventory.is_empty():
-		t += "  (vazio)\n"
+		var empty := Label.new()
+		empty.text = "Inventário vazio"
+		inv_box.add_child(empty)
 	for id in GameState.inventory.keys():
-		t += "  - %s x%d\n" % [GameState.item_name(str(id)), int(GameState.inventory[id])]
-	t += "Atributos: " + str(GameState.attributes) + "   Pontos: " + str(GameState.attr_points)
-	inv_label.text = t
+		var row := HBoxContainer.new()
+		var icon := TextureRect.new()
+		icon.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+		icon.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+		icon.custom_minimum_size = Vector2(44, 44)
+		var path: String = GameState.item_icon(str(id))
+		if path != "" and ResourceLoader.exists(path):
+			icon.texture = load(path)
+		row.add_child(icon)
+		var l := Label.new()
+		l.text = "  %s x%d" % [GameState.item_name(str(id)), int(GameState.inventory[id])]
+		l.add_theme_font_size_override("font_size", 20)
+		row.add_child(l)
+		inv_box.add_child(row)
+	attr_label.text = "Atributos: " + str(GameState.attributes) + "   Pontos: " + str(GameState.attr_points)
 	var sel := slot_opt.selected
 	slot_opt.clear()
 	for i in range(1, SaveManager.SLOTS + 1):

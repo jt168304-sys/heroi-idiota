@@ -117,6 +117,11 @@ func item_name(id: String) -> String:
 		return str(items[id]["nome"])
 	return id
 
+func item_icon(id: String) -> String:
+	if items.has(id):
+		return str(items[id].get("icone", ""))
+	return ""
+
 # ---------- Missões ----------
 func on_enemy_killed(enemy_type: String) -> void:
 	for qid in quests.keys():

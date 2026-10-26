@@ -1,9 +1,1098 @@
 [
-  {"id":"espada_basica","nome":"Espada básica","tipo":"arma","descricao":"Espada simples.","empilhavel":false,"temporario":true},
-  {"id":"escudo_madeira","nome":"Escudo de madeira","tipo":"escudo","descricao":"Escudo simples.","empilhavel":false,"temporario":true},
-  {"id":"pocao_cura","nome":"Poção de cura","tipo":"consumivel","descricao":"Restaura vida (efeito ainda não implementado).","empilhavel":true,"temporario":true},
-  {"id":"moeda","nome":"Moeda","tipo":"moeda","descricao":"Moeda de troca.","empilhavel":true,"temporario":true},
-  {"id":"livro_missoes","nome":"Livro","tipo":"livro","descricao":"Estrutura reservada.","empilhavel":false,"temporario":true},
-  {"id":"mochila","nome":"Mochila","tipo":"acessorio","descricao":"Estrutura reservada.","empilhavel":false,"temporario":true},
-  {"id":"armadura_couro","nome":"Armadura leve","tipo":"armadura","descricao":"Estrutura reservada para equipamentos visuais futuros.","empilhavel":false,"temporario":true}
+ {
+  "id": "espada_basica",
+  "nome": "Espada básica",
+  "tipo": "arma",
+  "descricao": "Espada simples.",
+  "empilhavel": false,
+  "temporario": true
+ },
+ {
+  "id": "escudo_madeira",
+  "nome": "Escudo de madeira",
+  "tipo": "escudo",
+  "descricao": "Escudo simples.",
+  "empilhavel": false,
+  "temporario": true
+ },
+ {
+  "id": "pocao_cura",
+  "nome": "Poção de cura",
+  "tipo": "consumivel",
+  "descricao": "Restaura vida (efeito ainda não implementado).",
+  "empilhavel": true,
+  "temporario": true,
+  "icone": "res://assets/ui/icons/pocao_cura.png"
+ },
+ {
+  "id": "moeda",
+  "nome": "Moeda",
+  "tipo": "moeda",
+  "descricao": "Moeda de troca.",
+  "empilhavel": true,
+  "temporario": true,
+  "icone": "res://assets/ui/icons/moeda_cobre.png"
+ },
+ {
+  "id": "livro_missoes",
+  "nome": "Livro",
+  "tipo": "livro",
+  "descricao": "Estrutura reservada.",
+  "empilhavel": false,
+  "temporario": true,
+  "icone": "res://assets/ui/icons/livro.png"
+ },
+ {
+  "id": "mochila",
+  "nome": "Mochila",
+  "tipo": "acessorio",
+  "descricao": "Estrutura reservada.",
+  "empilhavel": false,
+  "temporario": true,
+  "icone": "res://assets/ui/icons/mochila.png"
+ },
+ {
+  "id": "armadura_couro",
+  "nome": "Armadura leve",
+  "tipo": "armadura",
+  "descricao": "Estrutura reservada para equipamentos visuais futuros.",
+  "empilhavel": false,
+  "temporario": true,
+  "icone": "res://assets/ui/icons/armadura_couro.png"
+ },
+ {
+  "id": "alavanca",
+  "nome": "Alavanca",
+  "tipo": "objeto",
+  "descricao": "Item de teste (ícone recortado do painel de referência).",
+  "empilhavel": true,
+  "icone": "res://assets/ui/icons/alavanca.png",
+  "temporario": true
+ },
+ {
+  "id": "antidoto",
+  "nome": "Antídoto",
+  "tipo": "consumivel",
+  "descricao": "Item de teste (ícone recortado do painel de referência).",
+  "empilhavel": true,
+  "icone": "res://assets/ui/icons/antidoto.png",
+  "temporario": true
+ },
+ {
+  "id": "balde",
+  "nome": "Balde",
+  "tipo": "ferramenta",
+  "descricao": "Item de teste (ícone recortado do painel de referência).",
+  "empilhavel": true,
+  "icone": "res://assets/ui/icons/balde.png",
+  "temporario": true
+ },
+ {
+  "id": "banco",
+  "nome": "Banco",
+  "tipo": "objeto",
+  "descricao": "Item de teste (ícone recortado do painel de referência).",
+  "empilhavel": true,
+  "icone": "res://assets/ui/icons/banco.png",
+  "temporario": true
+ },
+ {
+  "id": "barraca",
+  "nome": "Barraca",
+  "tipo": "objeto",
+  "descricao": "Item de teste (ícone recortado do painel de referência).",
+  "empilhavel": true,
+  "icone": "res://assets/ui/icons/barraca.png",
+  "temporario": true
+ },
+ {
+  "id": "barril",
+  "nome": "Barril",
+  "tipo": "objeto",
+  "descricao": "Item de teste (ícone recortado do painel de referência).",
+  "empilhavel": true,
+  "icone": "res://assets/ui/icons/barril.png",
+  "temporario": true
+ },
+ {
+  "id": "barril_aberto",
+  "nome": "Barril aberto",
+  "tipo": "objeto",
+  "descricao": "Item de teste (ícone recortado do painel de referência).",
+  "empilhavel": true,
+  "icone": "res://assets/ui/icons/barril_aberto.png",
+  "temporario": true
+ },
+ {
+  "id": "barril_fechado",
+  "nome": "Barril fechado",
+  "tipo": "objeto",
+  "descricao": "Item de teste (ícone recortado do painel de referência).",
+  "empilhavel": true,
+  "icone": "res://assets/ui/icons/barril_fechado.png",
+  "temporario": true
+ },
+ {
+  "id": "bau",
+  "nome": "Bau",
+  "tipo": "objeto",
+  "descricao": "Item de teste (ícone recortado do painel de referência).",
+  "empilhavel": true,
+  "icone": "res://assets/ui/icons/bau.png",
+  "temporario": true
+ },
+ {
+  "id": "bau_trancado",
+  "nome": "Bau trancado",
+  "tipo": "objeto",
+  "descricao": "Item de teste (ícone recortado do painel de referência).",
+  "empilhavel": true,
+  "icone": "res://assets/ui/icons/bau_trancado.png",
+  "temporario": true
+ },
+ {
+  "id": "bolsa",
+  "nome": "Bolsa",
+  "tipo": "acessorio",
+  "descricao": "Item de teste (ícone recortado do painel de referência).",
+  "empilhavel": true,
+  "icone": "res://assets/ui/icons/bolsa.png",
+  "temporario": true
+ },
+ {
+  "id": "botas_couro",
+  "nome": "Botas couro",
+  "tipo": "armadura",
+  "descricao": "Item de teste (ícone recortado do painel de referência).",
+  "empilhavel": false,
+  "icone": "res://assets/ui/icons/botas_couro.png",
+  "temporario": true
+ },
+ {
+  "id": "bussola",
+  "nome": "Bússola",
+  "tipo": "objeto",
+  "descricao": "Item de teste (ícone recortado do painel de referência).",
+  "empilhavel": true,
+  "icone": "res://assets/ui/icons/bussola.png",
+  "temporario": true
+ },
+ {
+  "id": "cadeira",
+  "nome": "Cadeira",
+  "tipo": "objeto",
+  "descricao": "Item de teste (ícone recortado do painel de referência).",
+  "empilhavel": true,
+  "icone": "res://assets/ui/icons/cadeira.png",
+  "temporario": true
+ },
+ {
+  "id": "caixa",
+  "nome": "Caixa",
+  "tipo": "objeto",
+  "descricao": "Item de teste (ícone recortado do painel de referência).",
+  "empilhavel": true,
+  "icone": "res://assets/ui/icons/caixa.png",
+  "temporario": true
+ },
+ {
+  "id": "caixa_madeira",
+  "nome": "Caixa madeira",
+  "tipo": "objeto",
+  "descricao": "Item de teste (ícone recortado do painel de referência).",
+  "empilhavel": true,
+  "icone": "res://assets/ui/icons/caixa_madeira.png",
+  "temporario": true
+ },
+ {
+  "id": "caixa_reforcada",
+  "nome": "Caixa reforçada",
+  "tipo": "objeto",
+  "descricao": "Item de teste (ícone recortado do painel de referência).",
+  "empilhavel": true,
+  "icone": "res://assets/ui/icons/caixa_reforcada.png",
+  "temporario": true
+ },
+ {
+  "id": "cama",
+  "nome": "Cama",
+  "tipo": "objeto",
+  "descricao": "Item de teste (ícone recortado do painel de referência).",
+  "empilhavel": true,
+  "icone": "res://assets/ui/icons/cama.png",
+  "temporario": true
+ },
+ {
+  "id": "caneca",
+  "nome": "Caneca",
+  "tipo": "objeto",
+  "descricao": "Item de teste (ícone recortado do painel de referência).",
+  "empilhavel": true,
+  "icone": "res://assets/ui/icons/caneca.png",
+  "temporario": true
+ },
+ {
+  "id": "capacete_aco",
+  "nome": "Capacete aco",
+  "tipo": "armadura",
+  "descricao": "Item de teste (ícone recortado do painel de referência).",
+  "empilhavel": false,
+  "icone": "res://assets/ui/icons/capacete_aco.png",
+  "temporario": true
+ },
+ {
+  "id": "capacete_bronze",
+  "nome": "Capacete bronze",
+  "tipo": "armadura",
+  "descricao": "Item de teste (ícone recortado do painel de referência).",
+  "empilhavel": false,
+  "icone": "res://assets/ui/icons/capacete_bronze.png",
+  "temporario": true
+ },
+ {
+  "id": "capacete_couro",
+  "nome": "Capacete couro",
+  "tipo": "armadura",
+  "descricao": "Item de teste (ícone recortado do painel de referência).",
+  "empilhavel": false,
+  "icone": "res://assets/ui/icons/capacete_couro.png",
+  "temporario": true
+ },
+ {
+  "id": "carta",
+  "nome": "Carta",
+  "tipo": "quest",
+  "descricao": "Item de teste (ícone recortado do painel de referência).",
+  "empilhavel": true,
+  "icone": "res://assets/ui/icons/carta.png",
+  "temporario": true
+ },
+ {
+  "id": "carvao",
+  "nome": "Carvão",
+  "tipo": "recurso",
+  "descricao": "Item de teste (ícone recortado do painel de referência).",
+  "empilhavel": true,
+  "icone": "res://assets/ui/icons/carvao.png",
+  "temporario": true
+ },
+ {
+  "id": "cenoura",
+  "nome": "Cenoura",
+  "tipo": "alimento",
+  "descricao": "Item de teste (ícone recortado do painel de referência).",
+  "empilhavel": true,
+  "icone": "res://assets/ui/icons/cenoura.png",
+  "temporario": true
+ },
+ {
+  "id": "cesta",
+  "nome": "Cesta",
+  "tipo": "objeto",
+  "descricao": "Item de teste (ícone recortado do painel de referência).",
+  "empilhavel": true,
+  "icone": "res://assets/ui/icons/cesta.png",
+  "temporario": true
+ },
+ {
+  "id": "cesto_aberto",
+  "nome": "Cesto aberto",
+  "tipo": "objeto",
+  "descricao": "Item de teste (ícone recortado do painel de referência).",
+  "empilhavel": true,
+  "icone": "res://assets/ui/icons/cesto_aberto.png",
+  "temporario": true
+ },
+ {
+  "id": "cesto_fechado",
+  "nome": "Cesto fechado",
+  "tipo": "objeto",
+  "descricao": "Item de teste (ícone recortado do painel de referência).",
+  "empilhavel": true,
+  "icone": "res://assets/ui/icons/cesto_fechado.png",
+  "temporario": true
+ },
+ {
+  "id": "cesto_pesca",
+  "nome": "Cesto pesca",
+  "tipo": "objeto",
+  "descricao": "Item de teste (ícone recortado do painel de referência).",
+  "empilhavel": true,
+  "icone": "res://assets/ui/icons/cesto_pesca.png",
+  "temporario": true
+ },
+ {
+  "id": "chave",
+  "nome": "Chave",
+  "tipo": "quest",
+  "descricao": "Item de teste (ícone recortado do painel de referência).",
+  "empilhavel": true,
+  "icone": "res://assets/ui/icons/chave.png",
+  "temporario": true
+ },
+ {
+  "id": "cogumelo",
+  "nome": "Cogumelo",
+  "tipo": "recurso",
+  "descricao": "Item de teste (ícone recortado do painel de referência).",
+  "empilhavel": true,
+  "icone": "res://assets/ui/icons/cogumelo.png",
+  "temporario": true
+ },
+ {
+  "id": "corda",
+  "nome": "Corda",
+  "tipo": "objeto",
+  "descricao": "Item de teste (ícone recortado do painel de referência).",
+  "empilhavel": true,
+  "icone": "res://assets/ui/icons/corda.png",
+  "temporario": true
+ },
+ {
+  "id": "corrente",
+  "nome": "Corrente",
+  "tipo": "objeto",
+  "descricao": "Item de teste (ícone recortado do painel de referência).",
+  "empilhavel": true,
+  "icone": "res://assets/ui/icons/corrente.png",
+  "temporario": true
+ },
+ {
+  "id": "couro",
+  "nome": "Couro",
+  "tipo": "recurso",
+  "descricao": "Item de teste (ícone recortado do painel de referência).",
+  "empilhavel": true,
+  "icone": "res://assets/ui/icons/couro.png",
+  "temporario": true
+ },
+ {
+  "id": "cristal_azul",
+  "nome": "Cristal azul",
+  "tipo": "recurso",
+  "descricao": "Item de teste (ícone recortado do painel de referência).",
+  "empilhavel": true,
+  "icone": "res://assets/ui/icons/cristal_azul.png",
+  "temporario": true
+ },
+ {
+  "id": "cristal_magico",
+  "nome": "Cristal magico",
+  "tipo": "objeto",
+  "descricao": "Item de teste (ícone recortado do painel de referência).",
+  "empilhavel": true,
+  "icone": "res://assets/ui/icons/cristal_magico.png",
+  "temporario": true
+ },
+ {
+  "id": "cristal_roxo",
+  "nome": "Cristal roxo",
+  "tipo": "recurso",
+  "descricao": "Item de teste (ícone recortado do painel de referência).",
+  "empilhavel": true,
+  "icone": "res://assets/ui/icons/cristal_roxo.png",
+  "temporario": true
+ },
+ {
+  "id": "diario",
+  "nome": "Diário",
+  "tipo": "quest",
+  "descricao": "Item de teste (ícone recortado do painel de referência).",
+  "empilhavel": true,
+  "icone": "res://assets/ui/icons/diario.png",
+  "temporario": true
+ },
+ {
+  "id": "elixir",
+  "nome": "Elixir",
+  "tipo": "consumivel",
+  "descricao": "Item de teste (ícone recortado do painel de referência).",
+  "empilhavel": true,
+  "icone": "res://assets/ui/icons/elixir.png",
+  "temporario": true
+ },
+ {
+  "id": "enxada",
+  "nome": "Enxada",
+  "tipo": "ferramenta",
+  "descricao": "Item de teste (ícone recortado do painel de referência).",
+  "empilhavel": true,
+  "icone": "res://assets/ui/icons/enxada.png",
+  "temporario": true
+ },
+ {
+  "id": "erva_medicinal",
+  "nome": "Erva medicinal",
+  "tipo": "recurso",
+  "descricao": "Item de teste (ícone recortado do painel de referência).",
+  "empilhavel": true,
+  "icone": "res://assets/ui/icons/erva_medicinal.png",
+  "temporario": true
+ },
+ {
+  "id": "esfera",
+  "nome": "Esfera",
+  "tipo": "objeto",
+  "descricao": "Item de teste (ícone recortado do painel de referência).",
+  "empilhavel": true,
+  "icone": "res://assets/ui/icons/esfera.png",
+  "temporario": true
+ },
+ {
+  "id": "estante",
+  "nome": "Estante",
+  "tipo": "objeto",
+  "descricao": "Item de teste (ícone recortado do painel de referência).",
+  "empilhavel": true,
+  "icone": "res://assets/ui/icons/estante.png",
+  "temporario": true
+ },
+ {
+  "id": "estatua",
+  "nome": "Estátua",
+  "tipo": "objeto",
+  "descricao": "Item de teste (ícone recortado do painel de referência).",
+  "empilhavel": true,
+  "icone": "res://assets/ui/icons/estatua.png",
+  "temporario": true
+ },
+ {
+  "id": "facho_luz",
+  "nome": "Facho luz",
+  "tipo": "iluminacao",
+  "descricao": "Item de teste (ícone recortado do painel de referência).",
+  "empilhavel": true,
+  "icone": "res://assets/ui/icons/facho_luz.png",
+  "temporario": true
+ },
+ {
+  "id": "farol",
+  "nome": "Farol",
+  "tipo": "iluminacao",
+  "descricao": "Item de teste (ícone recortado do painel de referência).",
+  "empilhavel": true,
+  "icone": "res://assets/ui/icons/farol.png",
+  "temporario": true
+ },
+ {
+  "id": "fio",
+  "nome": "Fio",
+  "tipo": "recurso",
+  "descricao": "Item de teste (ícone recortado do painel de referência).",
+  "empilhavel": true,
+  "icone": "res://assets/ui/icons/fio.png",
+  "temporario": true
+ },
+ {
+  "id": "flor",
+  "nome": "Flor",
+  "tipo": "recurso",
+  "descricao": "Item de teste (ícone recortado do painel de referência).",
+  "empilhavel": true,
+  "icone": "res://assets/ui/icons/flor.png",
+  "temporario": true
+ },
+ {
+  "id": "fogao_acampamento",
+  "nome": "Fogão acampamento",
+  "tipo": "objeto",
+  "descricao": "Item de teste (ícone recortado do painel de referência).",
+  "empilhavel": true,
+  "icone": "res://assets/ui/icons/fogao_acampamento.png",
+  "temporario": true
+ },
+ {
+  "id": "fogo_magico",
+  "nome": "Fogo magico",
+  "tipo": "iluminacao",
+  "descricao": "Item de teste (ícone recortado do painel de referência).",
+  "empilhavel": true,
+  "icone": "res://assets/ui/icons/fogo_magico.png",
+  "temporario": true
+ },
+ {
+  "id": "fogueira",
+  "nome": "Fogueira",
+  "tipo": "objeto",
+  "descricao": "Item de teste (ícone recortado do painel de referência).",
+  "empilhavel": true,
+  "icone": "res://assets/ui/icons/fogueira.png",
+  "temporario": true
+ },
+ {
+  "id": "fogueira_portatil",
+  "nome": "Fogueira portátil",
+  "tipo": "iluminacao",
+  "descricao": "Item de teste (ícone recortado do painel de referência).",
+  "empilhavel": true,
+  "icone": "res://assets/ui/icons/fogueira_portatil.png",
+  "temporario": true
+ },
+ {
+  "id": "folhas",
+  "nome": "Folhas",
+  "tipo": "recurso",
+  "descricao": "Item de teste (ícone recortado do painel de referência).",
+  "empilhavel": true,
+  "icone": "res://assets/ui/icons/folhas.png",
+  "temporario": true
+ },
+ {
+  "id": "frigideira",
+  "nome": "Frigideira",
+  "tipo": "objeto",
+  "descricao": "Item de teste (ícone recortado do painel de referência).",
+  "empilhavel": true,
+  "icone": "res://assets/ui/icons/frigideira.png",
+  "temporario": true
+ },
+ {
+  "id": "fruta_silvestre",
+  "nome": "Fruta silvestre",
+  "tipo": "alimento",
+  "descricao": "Item de teste (ícone recortado do painel de referência).",
+  "empilhavel": true,
+  "icone": "res://assets/ui/icons/fruta_silvestre.png",
+  "temporario": true
+ },
+ {
+  "id": "gancho",
+  "nome": "Gancho",
+  "tipo": "objeto",
+  "descricao": "Item de teste (ícone recortado do painel de referência).",
+  "empilhavel": true,
+  "icone": "res://assets/ui/icons/gancho.png",
+  "temporario": true
+ },
+ {
+  "id": "grama",
+  "nome": "Grama",
+  "tipo": "recurso",
+  "descricao": "Item de teste (ícone recortado do painel de referência).",
+  "empilhavel": true,
+  "icone": "res://assets/ui/icons/grama.png",
+  "temporario": true
+ },
+ {
+  "id": "isca",
+  "nome": "Isca",
+  "tipo": "objeto",
+  "descricao": "Item de teste (ícone recortado do painel de referência).",
+  "empilhavel": true,
+  "icone": "res://assets/ui/icons/isca.png",
+  "temporario": true
+ },
+ {
+  "id": "joia_rara",
+  "nome": "Joia rara",
+  "tipo": "valor",
+  "descricao": "Item de teste (ícone recortado do painel de referência).",
+  "empilhavel": true,
+  "icone": "res://assets/ui/icons/joia_rara.png",
+  "temporario": true
+ },
+ {
+  "id": "joia_simples",
+  "nome": "Joia simples",
+  "tipo": "valor",
+  "descricao": "Item de teste (ícone recortado do painel de referência).",
+  "empilhavel": true,
+  "icone": "res://assets/ui/icons/joia_simples.png",
+  "temporario": true
+ },
+ {
+  "id": "lampiao",
+  "nome": "Lampião",
+  "tipo": "iluminacao",
+  "descricao": "Item de teste (ícone recortado do painel de referência).",
+  "empilhavel": true,
+  "icone": "res://assets/ui/icons/lampiao.png",
+  "temporario": true
+ },
+ {
+  "id": "lanterna",
+  "nome": "Lanterna",
+  "tipo": "iluminacao",
+  "descricao": "Item de teste (ícone recortado do painel de referência).",
+  "empilhavel": true,
+  "icone": "res://assets/ui/icons/lanterna.png",
+  "temporario": true
+ },
+ {
+  "id": "livro",
+  "nome": "Livro",
+  "tipo": "quest",
+  "descricao": "Item de teste (ícone recortado do painel de referência).",
+  "empilhavel": true,
+  "icone": "res://assets/ui/icons/livro.png",
+  "temporario": true
+ },
+ {
+  "id": "luminaria",
+  "nome": "Luminária",
+  "tipo": "iluminacao",
+  "descricao": "Item de teste (ícone recortado do painel de referência).",
+  "empilhavel": true,
+  "icone": "res://assets/ui/icons/luminaria.png",
+  "temporario": true
+ },
+ {
+  "id": "luvas_aco",
+  "nome": "Luvas aco",
+  "tipo": "armadura",
+  "descricao": "Item de teste (ícone recortado do painel de referência).",
+  "empilhavel": false,
+  "icone": "res://assets/ui/icons/luvas_aco.png",
+  "temporario": true
+ },
+ {
+  "id": "luvas_couro",
+  "nome": "Luvas couro",
+  "tipo": "armadura",
+  "descricao": "Item de teste (ícone recortado do painel de referência).",
+  "empilhavel": false,
+  "icone": "res://assets/ui/icons/luvas_couro.png",
+  "temporario": true
+ },
+ {
+  "id": "maca",
+  "nome": "Maçã",
+  "tipo": "alimento",
+  "descricao": "Item de teste (ícone recortado do painel de referência).",
+  "empilhavel": true,
+  "icone": "res://assets/ui/icons/maca.png",
+  "temporario": true
+ },
+ {
+  "id": "maca_porre",
+  "nome": "Maça de ferro",
+  "tipo": "arma",
+  "descricao": "Item de teste (ícone recortado do painel de referência).",
+  "empilhavel": false,
+  "icone": "res://assets/ui/icons/maca_porre.png",
+  "temporario": true
+ },
+ {
+  "id": "machado",
+  "nome": "Machado",
+  "tipo": "ferramenta",
+  "descricao": "Item de teste (ícone recortado do painel de referência).",
+  "empilhavel": true,
+  "icone": "res://assets/ui/icons/machado.png",
+  "temporario": true
+ },
+ {
+  "id": "madeira",
+  "nome": "Madeira",
+  "tipo": "recurso",
+  "descricao": "Item de teste (ícone recortado do painel de referência).",
+  "empilhavel": true,
+  "icone": "res://assets/ui/icons/madeira.png",
+  "temporario": true
+ },
+ {
+  "id": "madeira_tratada",
+  "nome": "Madeira tratada",
+  "tipo": "recurso",
+  "descricao": "Item de teste (ícone recortado do painel de referência).",
+  "empilhavel": true,
+  "icone": "res://assets/ui/icons/madeira_tratada.png",
+  "temporario": true
+ },
+ {
+  "id": "mapa",
+  "nome": "Mapa",
+  "tipo": "objeto",
+  "descricao": "Item de teste (ícone recortado do painel de referência).",
+  "empilhavel": true,
+  "icone": "res://assets/ui/icons/mapa.png",
+  "temporario": true
+ },
+ {
+  "id": "martelo",
+  "nome": "Martelo",
+  "tipo": "ferramenta",
+  "descricao": "Item de teste (ícone recortado do painel de referência).",
+  "empilhavel": true,
+  "icone": "res://assets/ui/icons/martelo.png",
+  "temporario": true
+ },
+ {
+  "id": "martelo_bronze",
+  "nome": "Martelo bronze",
+  "tipo": "arma",
+  "descricao": "Item de teste (ícone recortado do painel de referência).",
+  "empilhavel": false,
+  "icone": "res://assets/ui/icons/martelo_bronze.png",
+  "temporario": true
+ },
+ {
+  "id": "mesa",
+  "nome": "Mesa",
+  "tipo": "objeto",
+  "descricao": "Item de teste (ícone recortado do painel de referência).",
+  "empilhavel": true,
+  "icone": "res://assets/ui/icons/mesa.png",
+  "temporario": true
+ },
+ {
+  "id": "minerio_ferro",
+  "nome": "Minério ferro",
+  "tipo": "recurso",
+  "descricao": "Item de teste (ícone recortado do painel de referência).",
+  "empilhavel": true,
+  "icone": "res://assets/ui/icons/minerio_ferro.png",
+  "temporario": true
+ },
+ {
+  "id": "minerio_ouro",
+  "nome": "Minério ouro",
+  "tipo": "recurso",
+  "descricao": "Item de teste (ícone recortado do painel de referência).",
+  "empilhavel": true,
+  "icone": "res://assets/ui/icons/minerio_ouro.png",
+  "temporario": true
+ },
+ {
+  "id": "minerio_prata",
+  "nome": "Minério prata",
+  "tipo": "recurso",
+  "descricao": "Item de teste (ícone recortado do painel de referência).",
+  "empilhavel": true,
+  "icone": "res://assets/ui/icons/minerio_prata.png",
+  "temporario": true
+ },
+ {
+  "id": "moeda_cobre",
+  "nome": "Moeda cobre",
+  "tipo": "valor",
+  "descricao": "Item de teste (ícone recortado do painel de referência).",
+  "empilhavel": true,
+  "icone": "res://assets/ui/icons/moeda_cobre.png",
+  "temporario": true
+ },
+ {
+  "id": "moeda_ouro",
+  "nome": "Moeda ouro",
+  "tipo": "valor",
+  "descricao": "Item de teste (ícone recortado do painel de referência).",
+  "empilhavel": true,
+  "icone": "res://assets/ui/icons/moeda_ouro.png",
+  "temporario": true
+ },
+ {
+  "id": "moeda_prata",
+  "nome": "Moeda prata",
+  "tipo": "valor",
+  "descricao": "Item de teste (ícone recortado do painel de referência).",
+  "empilhavel": true,
+  "icone": "res://assets/ui/icons/moeda_prata.png",
+  "temporario": true
+ },
+ {
+  "id": "ossos",
+  "nome": "Ossos",
+  "tipo": "recurso",
+  "descricao": "Item de teste (ícone recortado do painel de referência).",
+  "empilhavel": true,
+  "icone": "res://assets/ui/icons/ossos.png",
+  "temporario": true
+ },
+ {
+  "id": "panela",
+  "nome": "Panela",
+  "tipo": "objeto",
+  "descricao": "Item de teste (ícone recortado do painel de referência).",
+  "empilhavel": true,
+  "icone": "res://assets/ui/icons/panela.png",
+  "temporario": true
+ },
+ {
+  "id": "pao",
+  "nome": "Pão",
+  "tipo": "alimento",
+  "descricao": "Item de teste (ícone recortado do painel de referência).",
+  "empilhavel": true,
+  "icone": "res://assets/ui/icons/pao.png",
+  "temporario": true
+ },
+ {
+  "id": "papel",
+  "nome": "Papel",
+  "tipo": "recurso",
+  "descricao": "Item de teste (ícone recortado do painel de referência).",
+  "empilhavel": true,
+  "icone": "res://assets/ui/icons/papel.png",
+  "temporario": true
+ },
+ {
+  "id": "pedra",
+  "nome": "Pedra",
+  "tipo": "recurso",
+  "descricao": "Item de teste (ícone recortado do painel de referência).",
+  "empilhavel": true,
+  "icone": "res://assets/ui/icons/pedra.png",
+  "temporario": true
+ },
+ {
+  "id": "peitoral_aco",
+  "nome": "Peitoral aco",
+  "tipo": "armadura",
+  "descricao": "Item de teste (ícone recortado do painel de referência).",
+  "empilhavel": false,
+  "icone": "res://assets/ui/icons/peitoral_aco.png",
+  "temporario": true
+ },
+ {
+  "id": "peitoral_bronze",
+  "nome": "Peitoral bronze",
+  "tipo": "armadura",
+  "descricao": "Item de teste (ícone recortado do painel de referência).",
+  "empilhavel": false,
+  "icone": "res://assets/ui/icons/peitoral_bronze.png",
+  "temporario": true
+ },
+ {
+  "id": "peixe",
+  "nome": "Peixe",
+  "tipo": "objeto",
+  "descricao": "Item de teste (ícone recortado do painel de referência).",
+  "empilhavel": true,
+  "icone": "res://assets/ui/icons/peixe.png",
+  "temporario": true
+ },
+ {
+  "id": "pele",
+  "nome": "Pele",
+  "tipo": "recurso",
+  "descricao": "Item de teste (ícone recortado do painel de referência).",
+  "empilhavel": true,
+  "icone": "res://assets/ui/icons/pele.png",
+  "temporario": true
+ },
+ {
+  "id": "pergaminho",
+  "nome": "Pergaminho",
+  "tipo": "quest",
+  "descricao": "Item de teste (ícone recortado do painel de referência).",
+  "empilhavel": true,
+  "icone": "res://assets/ui/icons/pergaminho.png",
+  "temporario": true
+ },
+ {
+  "id": "picareta",
+  "nome": "Picareta",
+  "tipo": "ferramenta",
+  "descricao": "Item de teste (ícone recortado do painel de referência).",
+  "empilhavel": true,
+  "icone": "res://assets/ui/icons/picareta.png",
+  "temporario": true
+ },
+ {
+  "id": "placa_madeira",
+  "nome": "Placa madeira",
+  "tipo": "objeto",
+  "descricao": "Item de teste (ícone recortado do painel de referência).",
+  "empilhavel": true,
+  "icone": "res://assets/ui/icons/placa_madeira.png",
+  "temporario": true
+ },
+ {
+  "id": "pocao_mana",
+  "nome": "Poção mana",
+  "tipo": "consumivel",
+  "descricao": "Item de teste (ícone recortado do painel de referência).",
+  "empilhavel": true,
+  "icone": "res://assets/ui/icons/pocao_mana.png",
+  "temporario": true
+ },
+ {
+  "id": "pocao_resistencia",
+  "nome": "Poção resistência",
+  "tipo": "consumivel",
+  "descricao": "Item de teste (ícone recortado do painel de referência).",
+  "empilhavel": true,
+  "icone": "res://assets/ui/icons/pocao_resistencia.png",
+  "temporario": true
+ },
+ {
+  "id": "portao",
+  "nome": "Portao",
+  "tipo": "objeto",
+  "descricao": "Item de teste (ícone recortado do painel de referência).",
+  "empilhavel": true,
+  "icone": "res://assets/ui/icons/portao.png",
+  "temporario": true
+ },
+ {
+  "id": "pote",
+  "nome": "Pote",
+  "tipo": "objeto",
+  "descricao": "Item de teste (ícone recortado do painel de referência).",
+  "empilhavel": true,
+  "icone": "res://assets/ui/icons/pote.png",
+  "temporario": true
+ },
+ {
+  "id": "prato",
+  "nome": "Prato",
+  "tipo": "objeto",
+  "descricao": "Item de teste (ícone recortado do painel de referência).",
+  "empilhavel": true,
+  "icone": "res://assets/ui/icons/prato.png",
+  "temporario": true
+ },
+ {
+  "id": "rede",
+  "nome": "Rede",
+  "tipo": "objeto",
+  "descricao": "Item de teste (ícone recortado do painel de referência).",
+  "empilhavel": true,
+  "icone": "res://assets/ui/icons/rede.png",
+  "temporario": true
+ },
+ {
+  "id": "reliquia",
+  "nome": "Relíquia",
+  "tipo": "objeto",
+  "descricao": "Item de teste (ícone recortado do painel de referência).",
+  "empilhavel": true,
+  "icone": "res://assets/ui/icons/reliquia.png",
+  "temporario": true
+ },
+ {
+  "id": "saco",
+  "nome": "Saco",
+  "tipo": "objeto",
+  "descricao": "Item de teste (ícone recortado do painel de referência).",
+  "empilhavel": true,
+  "icone": "res://assets/ui/icons/saco.png",
+  "temporario": true
+ },
+ {
+  "id": "saco_grande",
+  "nome": "Saco grande",
+  "tipo": "objeto",
+  "descricao": "Item de teste (ícone recortado do painel de referência).",
+  "empilhavel": true,
+  "icone": "res://assets/ui/icons/saco_grande.png",
+  "temporario": true
+ },
+ {
+  "id": "saco_medio",
+  "nome": "Saco medio",
+  "tipo": "objeto",
+  "descricao": "Item de teste (ícone recortado do painel de referência).",
+  "empilhavel": true,
+  "icone": "res://assets/ui/icons/saco_medio.png",
+  "temporario": true
+ },
+ {
+  "id": "saco_pequeno",
+  "nome": "Saco pequeno",
+  "tipo": "objeto",
+  "descricao": "Item de teste (ícone recortado do painel de referência).",
+  "empilhavel": true,
+  "icone": "res://assets/ui/icons/saco_pequeno.png",
+  "temporario": true
+ },
+ {
+  "id": "serrote",
+  "nome": "Serrote",
+  "tipo": "ferramenta",
+  "descricao": "Item de teste (ícone recortado do painel de referência).",
+  "empilhavel": true,
+  "icone": "res://assets/ui/icons/serrote.png",
+  "temporario": true
+ },
+ {
+  "id": "sinalizacao",
+  "nome": "Sinalização",
+  "tipo": "objeto",
+  "descricao": "Item de teste (ícone recortado do painel de referência).",
+  "empilhavel": true,
+  "icone": "res://assets/ui/icons/sinalizacao.png",
+  "temporario": true
+ },
+ {
+  "id": "talher",
+  "nome": "Talher",
+  "tipo": "objeto",
+  "descricao": "Item de teste (ícone recortado do painel de referência).",
+  "empilhavel": true,
+  "icone": "res://assets/ui/icons/talher.png",
+  "temporario": true
+ },
+ {
+  "id": "tecido",
+  "nome": "Tecido",
+  "tipo": "recurso",
+  "descricao": "Item de teste (ícone recortado do painel de referência).",
+  "empilhavel": true,
+  "icone": "res://assets/ui/icons/tecido.png",
+  "temporario": true
+ },
+ {
+  "id": "tenda",
+  "nome": "Tenda",
+  "tipo": "objeto",
+  "descricao": "Item de teste (ícone recortado do painel de referência).",
+  "empilhavel": true,
+  "icone": "res://assets/ui/icons/tenda.png",
+  "temporario": true
+ },
+ {
+  "id": "tocha",
+  "nome": "Tocha",
+  "tipo": "iluminacao",
+  "descricao": "Item de teste (ícone recortado do painel de referência).",
+  "empilhavel": true,
+  "icone": "res://assets/ui/icons/tocha.png",
+  "temporario": true
+ },
+ {
+  "id": "tocha_parede",
+  "nome": "Tocha parede",
+  "tipo": "iluminacao",
+  "descricao": "Item de teste (ícone recortado do painel de referência).",
+  "empilhavel": true,
+  "icone": "res://assets/ui/icons/tocha_parede.png",
+  "temporario": true
+ },
+ {
+  "id": "totem",
+  "nome": "Totem",
+  "tipo": "objeto",
+  "descricao": "Item de teste (ícone recortado do painel de referência).",
+  "empilhavel": true,
+  "icone": "res://assets/ui/icons/totem.png",
+  "temporario": true
+ },
+ {
+  "id": "trigo",
+  "nome": "Trigo",
+  "tipo": "alimento",
+  "descricao": "Item de teste (ícone recortado do painel de referência).",
+  "empilhavel": true,
+  "icone": "res://assets/ui/icons/trigo.png",
+  "temporario": true
+ },
+ {
+  "id": "vara_pesca",
+  "nome": "Vara pesca",
+  "tipo": "ferramenta",
+  "descricao": "Item de teste (ícone recortado do painel de referência).",
+  "empilhavel": true,
+  "icone": "res://assets/ui/icons/vara_pesca.png",
+  "temporario": true
+ },
+ {
+  "id": "vela",
+  "nome": "Vela",
+  "tipo": "iluminacao",
+  "descricao": "Item de teste (ícone recortado do painel de referência).",
+  "empilhavel": true,
+  "icone": "res://assets/ui/icons/vela.png",
+  "temporario": true
+ }
 ]
