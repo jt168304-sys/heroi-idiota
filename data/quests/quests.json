@@ -1,0 +1,3 @@
+[
+  {"id":"quest_teste_lobo","titulo":"Missão de teste","objetivo":"Derrote 1 lobo na floresta","tipo":"matar","alvo":"lobo","quantidade":1,"recompensa":{"xp":60,"itens":{"pocao_cura":2,"moeda":10}},"temporario":true}
+]

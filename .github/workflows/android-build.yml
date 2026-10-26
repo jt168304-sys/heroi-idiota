@@ -1,0 +1,50 @@
+name: Android APK (debug)
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+env:
+  GODOT_VERSION: "4.3"
+
+jobs:
+  export-android:
+    runs-on: ubuntu-22.04
+    container:
+      image: barichello/godot-ci:4.3
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Preparar templates de exportação
+        run: |
+          mkdir -p ~/.local/share/godot/export_templates
+          if [ ! -d ~/.local/share/godot/export_templates/${GODOT_VERSION}.stable ]; then
+            mv /root/.local/share/godot/export_templates/${GODOT_VERSION}.stable ~/.local/share/godot/export_templates/
+          fi
+
+      - name: Configurar Android (keystore de DEBUG gerada no CI)
+        run: |
+          keytool -keyalg RSA -genkeypair -alias androiddebugkey -keypass android \
+            -keystore /root/debug.keystore -storepass android \
+            -dname "CN=Android Debug,O=Android,C=US" -validity 9999 -deststoretype pkcs12
+          mkdir -p ~/.config/godot
+          printf '%s\n' '[gd_resource type="EditorSettings" format=3]' '[resource]' \
+            'export/android/android_sdk_path = "/usr/lib/android-sdk"' \
+            'export/android/debug_keystore = "/root/debug.keystore"' \
+            'export/android/debug_keystore_user = "androiddebugkey"' \
+            'export/android/debug_keystore_pass = "android"' \
+            > ~/.config/godot/editor_settings-4.3.tres
+
+      - name: Importar recursos
+        run: godot --headless --verbose --import || true
+
+      - name: Exportar APK debug
+        run: |
+          mkdir -p build
+          godot --headless --verbose --export-debug "Android" build/idiota-heroi-debug.apk
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: idiota-heroi-apk-debug
+          path: build/idiota-heroi-debug.apk

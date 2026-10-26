@@ -1,0 +1,9 @@
+[
+  {"id":"espada_basica","nome":"Espada básica","tipo":"arma","descricao":"Espada simples.","empilhavel":false,"temporario":true},
+  {"id":"escudo_madeira","nome":"Escudo de madeira","tipo":"escudo","descricao":"Escudo simples.","empilhavel":false,"temporario":true},
+  {"id":"pocao_cura","nome":"Poção de cura","tipo":"consumivel","descricao":"Restaura vida (efeito ainda não implementado).","empilhavel":true,"temporario":true},
+  {"id":"moeda","nome":"Moeda","tipo":"moeda","descricao":"Moeda de troca.","empilhavel":true,"temporario":true},
+  {"id":"livro_missoes","nome":"Livro","tipo":"livro","descricao":"Estrutura reservada.","empilhavel":false,"temporario":true},
+  {"id":"mochila","nome":"Mochila","tipo":"acessorio","descricao":"Estrutura reservada.","empilhavel":false,"temporario":true},
+  {"id":"armadura_couro","nome":"Armadura leve","tipo":"armadura","descricao":"Estrutura reservada para equipamentos visuais futuros.","empilhavel":false,"temporario":true}
+]

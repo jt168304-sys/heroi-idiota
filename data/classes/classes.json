@@ -1,0 +1,5 @@
+[
+  {"id":"guerreiro_teste","nome":"Guerreiro (teste)","descricao":"CLASSE PROVISÓRIA para testar a roleta. Mais força e vitalidade.","temporario":true,"atributos":{"forca":8,"velocidade":4,"vitalidade":7},"equipamentos_iniciais":["espada_basica"],"habilidades":[]},
+  {"id":"andarilho_teste","nome":"Andarilho (teste)","descricao":"CLASSE PROVISÓRIA para testar a roleta. Mais velocidade.","temporario":true,"atributos":{"forca":5,"velocidade":8,"vitalidade":5},"equipamentos_iniciais":["espada_basica","pocao_cura"],"habilidades":[]},
+  {"id":"resistente_teste","nome":"Resistente (teste)","descricao":"CLASSE PROVISÓRIA para testar a roleta. Mais vitalidade.","temporario":true,"atributos":{"forca":5,"velocidade":4,"vitalidade":10},"equipamentos_iniciais":["escudo_madeira"],"habilidades":[]}
+]

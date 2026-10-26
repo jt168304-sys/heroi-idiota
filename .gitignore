@@ -1,0 +1,16 @@
+# Godot 4
+.godot/
+.import/
+*.translation
+export_credentials.cfg
+# Builds e segredos
+build/*
+!build/.gitkeep
+*.apk
+*.aab
+*.keystore
+*.jks
+.env
+# Sistema
+.DS_Store
+Thumbs.db
