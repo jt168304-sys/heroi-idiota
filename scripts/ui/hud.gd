@@ -29,6 +29,7 @@ func _btn(text: String, min_size: Vector2, cb: Callable) -> Button:
 	b.text = text
 	b.custom_minimum_size = min_size
 	b.add_theme_font_size_override("font_size", 22)
+	b.focus_mode = Control.FOCUS_NONE
 	b.button_down.connect(cb)
 	return b
 
@@ -62,28 +63,25 @@ func setup(p) -> void:
 	add_child(msg)
 	GameState.notify.connect(_show_msg)
 
-	# Botões de ação (canto inferior direito)
-	var mc := MarginContainer.new()
-	mc.set_anchors_preset(Control.PRESET_FULL_RECT)
-	mc.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	mc.add_theme_constant_override("margin_right", 30)
-	mc.add_theme_constant_override("margin_bottom", 30)
-	add_child(mc)
-	var box := HBoxContainer.new()
-	box.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	box.size_flags_horizontal = Control.SIZE_SHRINK_END
-	box.size_flags_vertical = Control.SIZE_SHRINK_END
-	mc.add_child(box)
-	var sz := Vector2(112, 112)
-	for b in [
-		_btn("Interagir", sz, func(): player.interact()),
-		_btn("Pular", sz, func(): player.jump_request = true),
-		_btn("Esquiva", sz, func(): player.dodge()),
-		_btn("Pesado", sz, func(): player.attack_heavy()),
-		_btn("Atacar", sz, func(): player.attack()),
-	]:
-		box.add_child(b)
-		touch.buttons.append(b)
+	# Botões de ação distribuídos em arco, para o polegar direito
+	var layout := [
+		["Atacar", 150, 30, 30, func(): player.attack()],
+		["Pular", 110, 45, 200, func(): player.jump_request = true],
+		["Esquiva", 110, 205, 40, func(): player.dodge()],
+		["Pesado", 120, 215, 160, func(): player.attack_heavy()],
+		["Interagir", 100, 350, 130, func(): player.interact()],
+	]
+	for it in layout:
+		var bt := _btn(it[0], Vector2(it[1], it[1]), it[4])
+		bt.set_anchors_preset(Control.PRESET_BOTTOM_RIGHT)
+		bt.offset_right = -float(it[2])
+		bt.offset_bottom = -float(it[3])
+		bt.offset_left = bt.offset_right - float(it[1])
+		bt.offset_top = bt.offset_bottom - float(it[1])
+		bt.grow_horizontal = Control.GROW_DIRECTION_BEGIN
+		bt.grow_vertical = Control.GROW_DIRECTION_BEGIN
+		add_child(bt)
+		touch.buttons.append(bt)
 
 	var mb := _btn("Menu", Vector2(120, 64), func(): _open_menu())
 	mb.set_anchors_preset(Control.PRESET_TOP_RIGHT)

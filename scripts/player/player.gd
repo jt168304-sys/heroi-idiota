@@ -33,6 +33,10 @@ var arm: SpringArm3D
 var body: Node3D
 var torso: MeshInstance3D
 var leg_l: Node3D
+var model: Node3D
+var skeleton: Skeleton3D
+var anim_player: AnimationPlayer
+var _cur_anim: String = ""
 var leg_r: Node3D
 var arm_l: Node3D
 var arm_r: Node3D
@@ -74,6 +78,39 @@ func _limb(parent: Node3D, pos: Vector3, size: Vector3, color: Color) -> Node3D:
 func _build_visual() -> void:
 	body = Node3D.new()
 	add_child(body)
+	# Tenta usar o modelo 3D real (rigged); se falhar, usa o boneco provisório.
+	var res: Resource = load("res://assets/characters/heroi.glb")
+	if res is PackedScene:
+		model = (res as PackedScene).instantiate()
+		body.add_child(model)
+		var sks := model.find_children("*", "Skeleton3D", true, false)
+		var aps := model.find_children("*", "AnimationPlayer", true, false)
+		if sks.size() > 0 and aps.size() > 0:
+			skeleton = sks[0] as Skeleton3D
+			anim_player = aps[0] as AnimationPlayer
+	if anim_player != null and skeleton != null:
+		for n in ["idle", "walk", "run"]:
+			if anim_player.has_animation(n):
+				anim_player.get_animation(n).loop_mode = Animation.LOOP_LINEAR
+		_attach_sword()
+		anim_player.play("idle")
+		_cur_anim = "idle"
+		return
+	if model != null:
+		model.queue_free()
+		model = null
+	_build_puppet()
+
+func _attach_sword() -> void:
+	var ba := BoneAttachment3D.new()
+	ba.bone_name = "hand_R"
+	skeleton.add_child(ba)
+	var blade := MeshUtil.add(ba, MeshUtil.box(Vector3(0.03, 0.85, 0.09)), Color(0.78, 0.78, 0.84), Vector3(0, -0.52, -0.05))
+	blade.rotation.x = deg_to_rad(-8)
+	MeshUtil.add(ba, MeshUtil.box(Vector3(0.05, 0.05, 0.22)), Color(0.35, 0.1, 0.1), Vector3(0, -0.1, -0.03))  # guarda
+	MeshUtil.add(ba, MeshUtil.box(Vector3(0.04, 0.16, 0.04)), Color(0.15, 0.1, 0.08), Vector3(0, -0.02, -0.03))  # cabo
+
+func _build_puppet() -> void:
 	var dark := Color(0.12, 0.12, 0.15)
 	var red := Color(0.75, 0.1, 0.12)
 	torso = MeshUtil.add(body, MeshUtil.capsule(0.3, 1.0), dark, Vector3(0, 1.05, 0))
@@ -153,7 +190,30 @@ func _physics_process(delta: float) -> void:
 		_respawn()
 
 # ---------- Animação procedural (placeholder) ----------
+func _animate_model(hspeed: float) -> void:
+	if attacking or dodge_t > 0.0:
+		return
+	var want := "idle"
+	if not is_on_floor():
+		want = "jump"
+	elif hspeed > 3.6:
+		want = "run"
+	elif hspeed > 0.4:
+		want = "walk"
+	if want != _cur_anim:
+		_cur_anim = want
+		anim_player.play(want, 0.2)
+	if want == "walk":
+		anim_player.speed_scale = clampf(hspeed / 3.0, 0.7, 1.4)
+	elif want == "run":
+		anim_player.speed_scale = clampf(hspeed / 5.0, 0.8, 1.3)
+	else:
+		anim_player.speed_scale = 1.0
+
 func _animate(delta: float, hspeed: float) -> void:
+	if anim_player != null:
+		_animate_model(hspeed)
+		return
 	anim_t += delta
 	var ratio: float = clampf(hspeed / maxf(speed, 0.1), 0.0, 1.0)
 	var swing: float = sin(anim_t * (7.0 + 5.0 * ratio)) * 0.8 * ratio
@@ -195,6 +255,16 @@ func _do_attack(heavy: bool) -> void:
 		return
 	attacking = true
 	attack_cd = 1.1 if heavy else 0.45
+	if anim_player != null:
+		_cur_anim = "attack"
+		anim_player.speed_scale = 1.0
+		anim_player.play("attack_heavy" if heavy else "attack_light", 0.08)
+		var mt := create_tween()
+		mt.tween_interval(0.55 if heavy else 0.2)
+		mt.tween_callback(_hit.bind(2.2 if heavy else 1.0, 3.2 if heavy else 2.6, 7.0 if heavy else 3.0))
+		mt.tween_interval(0.55 if heavy else 0.35)
+		mt.tween_callback(func(): attacking = false)
+		return
 	var tw := create_tween()
 	if heavy:
 		tw.tween_property(arm_r, "rotation:x", 2.9, 0.35)             # preparação lenta
@@ -222,6 +292,10 @@ func dodge() -> void:
 	if dodge_t > 0.0 or attacking or dodge_cd > 0.0:
 		return
 	dodge_cd = 0.8
+	if anim_player != null:
+		_cur_anim = "dodge"
+		anim_player.speed_scale = 1.0
+		anim_player.play("dodge", 0.05)
 	dodge_t = DODGE_TIME
 	invuln = DODGE_TIME + 0.1
 	if last_dir.length() > 0.1:

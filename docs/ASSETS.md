@@ -7,8 +7,12 @@
 - `assets/ui/portraits/heroi.png`: retrato do herói (HUD).
 - `docs/referencias/`: painéis originais (guia de modelagem; NÃO são modelos 3D).
 
+## Personagem (modelo real do autor, otimizado)
+`assets/characters/heroi.glb`: modelo fornecido pelo autor, reduzido de 1,25 milhão para ~28 mil triângulos, com esqueleto de 16 ossos (rig AUTOMÁTICO, pesos simples) e 7 animações geradas por código (idle, walk, run, attack_light, attack_heavy, jump, dodge). A espada é uma peça provisória presa à mão direita. Deformações nos ombros podem ter pequenos defeitos; o ideal é um artista refinar pesos e animações no Blender. Pipeline em `tools/modelo/`. O modelo original (44 MB) não está no repositório.
+Se o GLB falhar ao carregar, o jogo usa o boneco provisório de primitivas.
+
 ## Placeholders (primitivas)
-Personagem articulado (cápsulas/caixas) com animações PROCEDURAIS (idle, andar, pulo, ataque leve, ataque pesado, esquiva), lobo, NPC, árvores, rochas (com textura), props.
+Lobo, NPC, árvores, rochas (com textura), props.
 
 ## Ainda NÃO existem
 Modelos 3D (.glb) de herói, NPCs, árvores, rochas, construções, itens e equipamentos; esqueleto/rig; animações reais; normal/roughness/AO dos terrenos (as miniaturas dos painéis não são mapas confiáveis); texturas de água; sons.

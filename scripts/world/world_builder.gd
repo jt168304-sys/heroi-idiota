@@ -154,13 +154,9 @@ func _build_props() -> void:
 	sign_lbl.text = "Floresta Inicial\n(provisório)"
 	sign_lbl.position = Vector3(2.0, 1.5, 11)
 	sign_lbl.pixel_size = 0.008
+	sign_lbl.double_sided = false   # texto só na frente (voltada para o lado do ponto inicial)
+	sign_lbl.rotation.y = PI
 	add_child(sign_lbl)
-	var sign_back := Label3D.new()   # verso da placa (legível por trás)
-	sign_back.text = sign_lbl.text
-	sign_back.position = Vector3(2.0, 1.5, 10.9)
-	sign_back.rotation.y = PI
-	sign_back.pixel_size = 0.008
-	add_child(sign_back)
 	# Cerca
 	for i in 5:
 		_solid(Vector3(-9 + i * 1.2, 0.5, 12), Vector3(1.0, 1.0, 0.1), Color(0.5, 0.35, 0.2))
