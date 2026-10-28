@@ -80,7 +80,11 @@ func _wall(pos: Vector3, size: Vector3) -> void:
 	sb.add_child(cs)
 	add_child(sb)
 
+var _tree_scene: PackedScene = null
+
 func _build_trees() -> void:
+	if ResourceLoader.exists("res://assets/models/trees/arvore_grande.glb"):
+		_tree_scene = load("res://assets/models/trees/arvore_grande.glb") as PackedScene
 	var rng := RandomNumberGenerator.new()
 	rng.seed = 7
 	var trunk := MeshUtil.cyl(0.25, 0.3, 2.0)
@@ -112,11 +116,17 @@ func _build_trees() -> void:
 		cs.shape = shape
 		cs.position.y = 1.5
 		t.add_child(cs)
-		MeshUtil.add_mat(t, trunk, MeshUtil.tex_mat("res://assets/textures/madeira.png", Vector3(1, 2, 1)), Vector3(0, 1.0, 0))
-		if count % 3 == 0:
-			MeshUtil.add(t, cone, Color(0.1, 0.35, 0.2), Vector3(0, 3.7, 0))   # conífera
+		if _tree_scene != null and count % 4 != 3:
+			# Árvore 3D real (4.4 mil triângulos, ~8 m na escala original); reduzida para ~5 m aqui
+			var inst: Node3D = _tree_scene.instantiate()
+			inst.scale = Vector3(0.6, 0.6, 0.6)
+			t.add_child(inst)
 		else:
-			MeshUtil.add(t, crown, Color(0.15, 0.5, 0.18), Vector3(0, 3.2, 0))  # folhas
+			MeshUtil.add_mat(t, trunk, MeshUtil.tex_mat("res://assets/textures/madeira.png", Vector3(1, 2, 1)), Vector3(0, 1.0, 0))
+			if count % 3 == 0:
+				MeshUtil.add(t, cone, Color(0.1, 0.35, 0.2), Vector3(0, 3.7, 0))   # conífera
+			else:
+				MeshUtil.add(t, crown, Color(0.15, 0.5, 0.18), Vector3(0, 3.2, 0))  # folhas
 		add_child(t)
 		count += 1
 

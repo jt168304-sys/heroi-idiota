@@ -39,26 +39,26 @@ def idle(t,T=2.4):
 
 def walk(t,T=1.0,amp=1.0,run=False):
     p=2*np.pi*t/T
-    A=50 if run else 28
-    K=95 if run else 42
-    ea=70 if run else 22   # elbow
-    aa=48 if run else 24   # arm swing
+    A=34 if run else 26          # amplitude da coxa (menor = quadril estável)
+    K=105 if run else 60         # flexão do joelho na fase de balanço
+    ea=75 if run else 30         # cotovelo dobrado
+    aa=38 if run else 26         # balanço do braço (oposto à perna)
     d={}
     for side,ph,sg in (('R',p,1),('L',p+np.pi,-1)):
         s=np.sin(ph); c=np.cos(ph)
         d['thigh_'+side]=(A*s,0,0)
-        d['shin_'+side]=(-(K*max(0,c)+6),0,0)
-        d['foot_'+side]=(-0.3*A*s+ (10 if run else 4)*max(0,c),0,0)
+        d['shin_'+side]=(-(K*max(0,c)+8),0,0)     # joelho dobra quando a perna passa por baixo
+        d['foot_'+side]=(-0.25*A*s+(8 if run else 4)*max(0,c),0,0)
         d['upperarm_'+side]=(-sg*aa*np.sin(p),0,0)
-        d['forearm_'+side]=(ea+10*max(0,-sg*np.cos(p)),0,0)
-    lean=14 if run else 4
-    d['spine']=(lean,(10 if run else 5)*np.sin(p),0)
-    d['chest']=(2,-(10 if run else 5)*np.sin(p),0)
-    d['head']=(-lean,0,0)
-    bob=(0.05 if run else 0.022)*np.cos(2*p)-(0.03 if run else 0.012)
+        d['forearm_'+side]=(ea+12*max(0,-sg*np.cos(p)),0,0)
+    lean=5 if run else 2          # tronco quase reto: sem inclinar o quadril
+    d['spine']=(lean,(6 if run else 3)*np.sin(p),0)
+    d['chest']=(-lean*0.5,-(6 if run else 3)*np.sin(p),0)
+    d['head']=(-lean*0.5,0,0)
+    bob=(0.035 if run else 0.015)*np.cos(2*p)-(0.02 if run else 0.01)
     return pose_from(d,bob)
 
-def run(t): return walk(t,0.65,1.0,True)
+def run(t): return walk(t,0.6,1.0,True)
 
 def attack_light(t):
     D=0.55

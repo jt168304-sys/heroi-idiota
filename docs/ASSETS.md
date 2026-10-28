@@ -17,3 +17,8 @@ Lobo, NPC, árvores, rochas (com textura), props.
 ## Ainda NÃO existem
 Modelos 3D (.glb) de herói, NPCs, árvores, rochas, construções, itens e equipamentos; esqueleto/rig; animações reais; normal/roughness/AO dos terrenos (as miniaturas dos painéis não são mapas confiáveis); texturas de água; sons.
 Os painéis de NPCs, árvores, rochas e grama servem como referência para a modelagem futura.
+
+## Árvore 3D (Tree.fbx, pacote "Tutos trees 2.8")
+`assets/models/trees/arvore_grande.glb`: tronco e galhos reais simplificados (~3 mil triângulos) e copa feita de 70 blocos verdes de baixo polígono, posicionados onde estavam as folhas do arquivo original. Não usa as cópias de folhagem originais (3 mil cópias, cerca de 1,5 mil triângulos cada) porque pesariam demais no celular.
+Materiais: cor sólida, sem textura. O arquivo original tem texturas de casca (normal e rugosidade), mas não a cor base; por isso a casca é marrom sólida.
+Licença: VERIFICAR antes de publicar (o pacote original não traz indicação de licença no arquivo).

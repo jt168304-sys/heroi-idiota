@@ -7,7 +7,7 @@ config/name="Idiota Autoproclamado Herói"
 config/description="Protótipo RPG 3D de aventura para Android"
 run/main_scene="res://scenes/main/main.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
-config/icon="res://icon.svg"
+config/icon="res://icon.png"
 
 [autoload]
 

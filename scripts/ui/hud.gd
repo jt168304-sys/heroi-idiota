@@ -211,13 +211,21 @@ func _do_load() -> void:
 func _build_roulette() -> void:
 	roulette = PanelContainer.new()
 	roulette.visible = false
-	roulette.custom_minimum_size = Vector2(620, 300)
+	roulette.custom_minimum_size = Vector2(620, 460)
 	roulette.set_anchors_preset(Control.PRESET_CENTER)
 	roulette.grow_horizontal = Control.GROW_DIRECTION_BOTH
 	roulette.grow_vertical = Control.GROW_DIRECTION_BOTH
 	add_child(roulette)
 	var v := VBoxContainer.new()
 	roulette.add_child(v)
+	var logo := TextureRect.new()
+	var ltex: Texture2D = load("res://assets/ui/logo/logo.png")
+	if ltex != null:
+		logo.texture = ltex
+	logo.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	logo.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	logo.custom_minimum_size = Vector2(0, 150)
+	v.add_child(logo)
 	var t := Label.new()
 	t.text = "Roleta de classe (classes de teste)"
 	t.add_theme_font_size_override("font_size", 26)
